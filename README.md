@@ -551,21 +551,20 @@ letter-spacing: .3px;
       SAIR DA CONTA
     </button>
 
-    <hr>
+    <hr>  <!-- CADASTRAR PRODUTO -->
+  <section id="secao-cadastro">
 
-    <!-- CADASTRAR PRODUTO -->
-    <section id="secao-cadastro">
+   <h3>Cadastrar produto</h3>
 
-      <h3>Cadastrar produto</h3>
+<label for="novo-nome">Nome do produto</label>
+<input
+  type="text"
+  id="novo-nome"
+  maxlength="80"
+  placeholder="Ex.: Fone Bluetooth"
+>
 
-      <label for="novo-nome">Nome do produto</label>
-      <input
-        id="novo-nome"
-        maxlength="80"
-        placeholder="Ex.: Fone Bluetooth"
-      
-
-      <label for="novo-descricao">Descrição</label>
+  <label for="novo-descricao">Descrição</label>
       <textarea
         id="novo-descricao"
         rows="3"
