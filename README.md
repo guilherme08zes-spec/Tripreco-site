@@ -714,11 +714,13 @@ hr {
 <body>
   <header>
   <div class="logo">TRIPREÇO</div>
-    <a href="#produtos">Produtos</a>
-    <a href="#carrinho">Carrinho (<span id="quantidade-carrinho">0</span>)</a>
-    <a href="#admin">Administração</a>
-  </nav>
 </header>
+
+<nav>
+  <a href="#produtos">Produtos</a>
+  <a href="#carrinho">Carrinho (<span id="quantidade-carrinho">0</span>)</a>
+  <a href="#admin">Administração</a>
+</nav>
 
   <section class="banner">
     <span class="subtitulo-banner">BEM-VINDO À TRIPREÇO</span>
