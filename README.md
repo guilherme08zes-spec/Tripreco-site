@@ -686,33 +686,27 @@ hr {
   }
 }
 
+
 .toast-carrinho {
   position: fixed;
-  bottom: 24px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: #242424;
-  color: #fff;
-  padding: 14px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px #0003;
+  background: #ffffff;
+  color: #722f43;
+  border: 1px solid #722f43;
+  padding: 9px 14px;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px #0002;
   z-index: 9999;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 600;
   text-align: center;
+  width: max-content;
   max-width: 85%;
   animation: aparecerToast 0.25s ease;
 }
 
-@keyframes aparecerToast {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 10px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
 
 
 </style>
