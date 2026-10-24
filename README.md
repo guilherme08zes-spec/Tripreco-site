@@ -686,6 +686,34 @@ hr {
   }
 }
 
+.toast-carrinho {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #242424;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #0003;
+  z-index: 9999;
+  font-size: 14px;
+  text-align: center;
+  max-width: 85%;
+  animation: aparecerToast 0.25s ease;
+}
+
+@keyframes aparecerToast {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
 
 </style>
 </head>
@@ -1094,18 +1122,54 @@ lista.appendChild(card);
       });
     }
 
+
+    let temporizadorToast;
+
+function mostrarToast(mensagem) {
+  let toast = document.getElementById("toast-carrinho");
+
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toast-carrinho";
+    toast.className = "toast-carrinho";
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = mensagem;
+  toast.style.display = "block";
+
+  clearTimeout(temporizadorToast);
+
+  temporizadorToast = setTimeout(() => {
+    toast.style.display = "none";
+  }, 2500);
+}
+
     function adicionarCarrinho(id) {
-      const produto = produtos.find(p => String(p.id) === String(id));
-      const noCarrinho = carrinho.find(p => String(p.id) === String(id));
-      const quantidade = noCarrinho ? noCarrinho.quantidade : 0;
-      if (!produto || quantidade >= produto.estoque) {
-        alert("Não há estoque suficiente.");
-        return;
-      }
-      if (noCarrinho) noCarrinho.quantidade++;
-      else carrinho.push({id:produto.id,nome:produto.nome,preco:produto.preco,quantidade:1});
-      mostrarCarrinho();
+  const produto = produtos.find(p => String(p.id) === String(id));
+  const noCarrinho = carrinho.find(p => String(p.id) === String(id));
+  const quantidade = noCarrinho ? noCarrinho.quantidade : 0;
+
+  if (!produto || quantidade >= produto.estoque) {
+    alert("Não há estoque suficiente.");
+    return;
+  }
+
+  if (noCarrinho) {
+    noCarrinho.quantidade++;
+  } else {
+    carrinho.push({
+      id: produto.id,
+      nome: produto.nome,
+      preco: produto.preco,
+      quantidade: 1
+    });
+  }
+
+  mostrarCarrinho();
+  mostrarToast(`${produto.nome} foi adicionado ao carrinho!`);
     }
+      
 
     function removerCarrinho(id) {
       const item = carrinho.find(p => String(p.id) === String(id));
