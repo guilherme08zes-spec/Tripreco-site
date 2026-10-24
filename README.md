@@ -6,16 +6,31 @@
   <title>TriPreço | Sua loja de ofertas</title>
 <style>
 
-    
+   
+
+
 :root {
-  --vermelho: #641D32;
   --vinho: #641D32;
-  --preto: #171717;
+  --vinho-escuro: #481324;
+  --vinho-claro: #F5EDF0;
+
+  --preto: #191719;
   --branco: #FFFFFF;
-  --fundo: #F7F6F6;
-  --dourado: #152E50;
-  --azul: #152E50;
-  --borda: #E5E1E3;
+  --fundo: #F8F7F7;
+  --superficie: #FFFFFF;
+
+  --azul: #203653;
+  --dourado: #203653;
+
+  --borda: #E9E3E5;
+  --texto-secundario: #777177;
+
+  --sombra-suave: 0 3px 14px rgba(35, 18, 25, 0.045);
+  --sombra-card: 0 5px 20px rgba(35, 18, 25, 0.065);
+
+  --raio-pequeno: 8px;
+  --raio-medio: 12px;
+  --raio-grande: 16px;
 }
 
 * {
@@ -24,6 +39,8 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -31,139 +48,216 @@ body {
   padding: 0;
   background: var(--fundo);
   color: var(--preto);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
 }
 
 header {
+  position: relative;
   background: var(--branco);
   color: var(--preto);
-  padding: 14px 12px;
+  padding: 18px 14px;
   text-align: center;
-  border-bottom: 2px solid var(--vinho);
+  border-bottom: 1px solid var(--borda);
 }
 
 header h1 {
   margin: 0;
   color: var(--vinho);
-  font-size: 25px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 850;
+  letter-spacing: 1.8px;
+  line-height: 1.2;
 }
 
 header p {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
+  color: var(--texto-secundario);
   font-size: 12px;
-  color: #666;
+  letter-spacing: 0.2px;
 }
 
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px;
+  gap: 5px;
+  padding: 10px 12px;
   background: var(--branco);
   border-bottom: 1px solid var(--borda);
 }
 
 nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: var(--raio-pequeno);
   color: var(--preto);
   text-decoration: none;
   font-size: 12px;
-  font-weight: bold;
-  padding: 7px 10px;
-  border-radius: 5px;
+  font-weight: 650;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus-visible {
   background: var(--vinho);
   color: var(--branco);
 }
 
 .banner {
-  margin: 12px auto;
-  padding: 20px 12px;
-  max-width: 1100px;
+  position: relative;
+  max-width: 1120px;
+  margin: 16px auto;
+  padding: 28px 16px;
+  overflow: hidden;
+  border-radius: var(--raio-grande);
   background: var(--vinho);
   color: var(--branco);
   text-align: center;
-  border-radius: 8px;
+  box-shadow: var(--sombra-suave);
 }
 
 .banner h2 {
-  margin: 0 0 6px;
-  font-size: 22px;
+  margin: 0 0 8px;
+  color: var(--branco);
+  font-size: clamp(22px, 5vw, 30px);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
 }
 
 .banner p {
-  margin: 0;
+  max-width: 540px;
+  margin: 0 auto;
+  color: #F4E8EC;
   font-size: 13px;
+  line-height: 1.6;
 }
 
 main,
 .container,
 .conteudo {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 12px;
 }
 
 h2,
 h3 {
-  line-height: 1.3;
+  color: var(--preto);
+  line-height: 1.35;
 }
 
 h2 {
   font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.3px;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 700;
 }
 
 section {
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+}
+
+section > h2 {
+  margin: 0 0 14px;
+}
+
+p {
+  overflow-wrap: anywhere;
+}
+
+a {
+  overflow-wrap: anywhere;
+  -webkit-tap-highlight-color: transparent;
 }
 
 input,
 textarea,
 select {
+  display: block;
   width: 100%;
-  padding: 10px;
-  margin: 5px 0 10px;
+  min-width: 0;
+  padding: 11px 12px;
+  margin: 6px 0 12px;
   border: 1px solid var(--borda);
-  border-radius: 6px;
+  border-radius: var(--raio-pequeno);
   background: var(--branco);
   color: var(--preto);
   font: inherit;
   font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9B9498;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--azul);
-  outline-offset: 1px;
+  outline: none;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(32, 54, 83, 0.10);
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
 }
 
 button,
 .btn,
 .btn-vermelho {
-  border: none;
-  border-radius: 6px;
-  padding: 9px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: var(--raio-pequeno);
   background: var(--vinho);
   color: var(--branco);
   font: inherit;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button:hover,
 .btn:hover,
 .btn-vermelho:hover {
-  opacity: 0.86;
+  background: var(--vinho-escuro);
+  box-shadow: 0 3px 9px rgba(100, 29, 50, 0.12);
 }
 
 button:active,
@@ -172,23 +266,51 @@ button:active,
   transform: scale(0.98);
 }
 
+button:focus-visible,
+.btn:focus-visible,
+.btn-vermelho:focus-visible {
+  outline: 3px solid rgba(32, 54, 83, 0.3);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Grade de produtos */
+
 #produtos,
 .lista-produtos,
 .grid-produtos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   gap: 10px;
 }
 
 .produto,
 .card-produto {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   overflow: hidden;
-  background: var(--branco);
+  padding: 9px;
   border: 1px solid var(--borda);
-  border-radius: 8px;
-  padding: 8px;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+  border-radius: var(--raio-medio);
+  background: var(--superficie);
+  box-shadow: var(--sombra-suave);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.produto:hover,
+.card-produto:hover {
+  border-color: #D9C4CB;
+  box-shadow: var(--sombra-card);
 }
 
 .produto img,
@@ -196,57 +318,73 @@ button:active,
 .imagem-produto img {
   display: block;
   width: 100%;
-  height: 135px;
+  height: 142px;
+  margin: 0 auto;
   object-fit: contain;
-  border-radius: 5px;
-  background: #FAFAFA;
+  object-position: center;
+  border-radius: var(--raio-pequeno);
+  background: #FAF9F9;
 }
 
 .produto h3,
 .card-produto h3 {
-  margin: 8px 0 4px;
+  margin: 10px 0 4px;
+  color: var(--preto);
   font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
   overflow-wrap: anywhere;
 }
 
 .produto p,
 .card-produto p {
   margin: 4px 0;
+  color: var(--texto-secundario);
   font-size: 12px;
+  line-height: 1.5;
   overflow-wrap: anywhere;
 }
 
 .preco,
 .preco-produto {
+  margin-top: auto;
+  padding-top: 7px;
   color: var(--vinho);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
+  letter-spacing: -0.2px;
 }
 
 .produto button,
 .card-produto button {
   width: 100%;
-  margin-top: 7px;
+  min-height: 37px;
+  margin-top: 9px;
   padding: 9px 5px;
 }
+
+/* Carrinho e administração */
 
 #carrinho,
 .carrinho,
 .painel,
 #painel-admin {
-  background: var(--branco);
+  min-width: 0;
+  margin: 14px 0;
+  padding: 14px;
   border: 1px solid var(--borda);
-  border-radius: 8px;
-  padding: 12px;
-  margin: 12px 0;
+  border-radius: var(--raio-medio);
+  background: var(--branco);
+  box-shadow: var(--sombra-suave);
 }
 
 #carrinho h2,
 .carrinho h2,
 .painel h2,
 #painel-admin h2 {
-  margin-top: 0;
+  margin: 0 0 12px;
   font-size: 18px;
+  font-weight: 750;
 }
 
 #carrinho button,
@@ -256,31 +394,97 @@ button:active,
 
 form {
   width: 100%;
+  min-width: 0;
 }
 
 label {
   display: block;
-  margin-top: 8px;
+  margin-top: 10px;
+  color: #383238;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 footer {
-  margin-top: 20px;
-  padding: 16px 10px;
+  margin-top: 30px;
+  padding: 22px 14px;
   background: var(--preto);
-  color: var(--branco);
+  color: #EAE6E8;
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.7;
 }
 
 footer a {
   color: var(--branco);
+  text-decoration-color: #B9A0A9;
+  text-underline-offset: 3px;
 }
 
-a {
-  overflow-wrap: anywhere;
+/* Rolagem e acessibilidade */
+
+::selection {
+  background: #E8D5DC;
+  color: var(--vinho-escuro);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Celulares pequenos */
+
+@media (max-width: 360px) {
+  header {
+    padding: 15px 10px;
+  }
+
+  nav {
+    gap: 3px;
+    padding: 8px 5px;
+  }
+
+  nav a {
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+
+  main,
+  .container,
+  .conteudo {
+    padding: 8px;
+  }
+
+  #produtos,
+  .lista-produtos,
+  .grid-produtos {
+    gap: 7px;
+  }
+
+  .produto,
+  .card-produto {
+    padding: 7px;
+  }
+
+  .produto img,
+  .card-produto img,
+  .imagem-produto img {
+    height: 118px;
+  }
+
+  .produto button,
+  .card-produto button {
+    font-size: 11px;
+  }
+}
+
+/* Tablets e computadores */
 
 @media (min-width: 700px) {
   body {
@@ -288,31 +492,41 @@ a {
   }
 
   header {
-    padding: 20px;
+    padding: 22px 20px;
   }
 
-  header h1 {
-    font-size: 32px;
+  nav {
+    gap: 10px;
+    padding: 12px 20px;
+  }
+
+  nav a {
+    padding: 9px 14px;
+    font-size: 13px;
   }
 
   .banner {
-    padding: 32px 20px;
+    margin: 22px auto;
+    padding: 42px 28px;
   }
 
-  .banner h2 {
-    font-size: 28px;
+  main,
+  .container,
+  .conteudo {
+    padding: 18px;
   }
 
   #produtos,
   .lista-produtos,
   .grid-produtos {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
+    gap: 17px;
   }
 
   .produto,
   .card-produto {
     padding: 12px;
+    border-radius: var(--raio-medio);
   }
 
   .produto img,
@@ -330,7 +544,20 @@ a {
   .card-produto p {
     font-size: 13px;
   }
+
+  .produto button,
+  .card-produto button {
+    min-height: 40px;
+  }
+
+  #carrinho,
+  .carrinho,
+  .painel,
+  #painel-admin {
+    padding: 20px;
+  }
 }
+
 
 
 </style>
