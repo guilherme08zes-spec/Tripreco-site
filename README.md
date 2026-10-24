@@ -610,14 +610,15 @@ letter-spacing: .3px;
         Escolha uma foto da galeria do celular. Máximo: 5 MB.
       </p>
 
-      <button
-        type="button"
-        class="btn-vermelho"
-        id="botao-cadastrar"
-        onclick="alert('O botão está funcionando!'); cadastrarProduto()"
-      >
-        CADASTRAR PRODUTO
-      </button>
+      
+<button
+  type="button"
+  class="btn-vermelho"
+  id="botao-cadastrar"
+  onclick="cadastrarProduto()"
+>
+  CADASTRAR PRODUTO
+</button>
 
       <p
         id="resultado-painel"
