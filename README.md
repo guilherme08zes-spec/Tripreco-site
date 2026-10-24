@@ -560,6 +560,133 @@ footer a {
 
 
 
+
+/* Identidade visual dos elementos específicos da loja */
+
+.logo {
+  color: var(--vinho);
+  font-size: 27px;
+  font-weight: 850;
+  letter-spacing: 1.8px;
+  line-height: 1.2;
+}
+
+.btn-banner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 11px 18px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #641D32;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.btn-banner:hover {
+  background: #F5EDF0;
+}
+
+.subtitulo-banner {
+  display: block;
+  margin-bottom: 8px;
+  color: #F0DDE3;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.8px;
+}
+
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pesquisa {
+  margin: 8px 0 14px;
+  border-radius: 10px;
+}
+
+.btn-categoria {
+  border: 1px solid var(--borda);
+  background: #FFFFFF;
+  color: var(--preto);
+}
+
+.btn-categoria:hover {
+  background: var(--vinho-claro);
+  color: var(--vinho);
+}
+
+.mensagem {
+  color: var(--texto-secundario);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.item-carrinho {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+.item-carrinho p {
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.btn-escuro {
+  background: var(--azul);
+  color: #FFFFFF;
+}
+
+.btn-escuro:hover {
+  background: #15243A;
+}
+
+.acesso-restrito {
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 12px;
+  background: #FFFFFF;
+}
+
+.acesso-restrito summary {
+  color: var(--vinho);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+hr {
+  margin: 22px 0;
+  border: 0;
+  border-top: 1px solid var(--borda);
+}
+
+#lista-produtos-admin,
+#lista-pedidos {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#area-admin[hidden],
+#area-login[hidden] {
+  display: none !important;
+}
+
+@media (min-width: 700px) {
+  .produtos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+}
+
+
 </style>
 </head>
 <body>
